@@ -26,7 +26,9 @@ const homeSchema = new Schema({
     },
     status: {
         type : String,
-        default: "avaible"
+        enum: {
+            values: ["onSale","soldOut","rejected"]
+        }
     },
     isWifi: {
         type: Boolean,
@@ -43,6 +45,13 @@ const homeSchema = new Schema({
     isConditioner: {
         type: Boolean,
         default: false,
+    },
+    isOwnerHouse: {
+        type: Boolean,
+        required: true
+    },
+    homeImage: {
+        type: [String]
     }
 });
 
